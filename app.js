@@ -11,11 +11,7 @@ var jsonParser = bodyParse.json();
 require("./db/conn");
 app.use(cors());
 
-app.get("/", verifyToken, async(req, res) => {
 
-    var t = await User.find({});
-    res.send(t);
-})
 app.post("/register", jsonParser, async(req, res) => {
 
     let body = req.body;
@@ -60,20 +56,6 @@ res.status(500).json({message:"error login"})
 
 })
 
-function verifyToken(req, res, next) {
-
-    const bearerHeader = req.headers['authorization'];
-    var bear = bearerHeader.split(" ")[1];
-    req.token = bear;
-    jwt.verify(req.token, jwttoken, (err, data) => {
-        if (err) {
-            res.json({ message: "error" })
-        } else {
-
-            next()
-        }
-    });
-}
 app.listen(5000, () => {
 
     console.log("app running at port 5000")
