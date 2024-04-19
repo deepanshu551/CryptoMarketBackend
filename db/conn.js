@@ -1,5 +1,5 @@
 const mongoose=require('mongoose');
-mongoose.connect("mongodb://localhost:27017/MyUser").then(()=>{
+mongoose.connect(process.env.DATABASE).then(()=>{
 
     console.log("db connected")
 }).catch((e)=>{
