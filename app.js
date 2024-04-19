@@ -6,7 +6,7 @@ const jwttoken = "jwt";
 const User = require("./model/User");
 const bodyParse = require('body-parser')
 const bcrypt = require('bcrypt');
-const dotenv = require('dotenv");
+const dotenv = require('dotenv');
 
 dotenv.config();
 var jsonParser = bodyParse.json();
